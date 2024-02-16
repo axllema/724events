@@ -9,18 +9,18 @@ const Slider = () => {
   // initializes index state to track the current slide
   const [index, setIndex] = useState(0);
   // calculates the total number of slides
-  const slides = data?.focus.length;
+  const slidesNumber = data?.focus.length;
 
   const nextCard = () => {
     setTimeout(() => {
-      setIndex((prevIndex) => (prevIndex < slides - 1 ? prevIndex + 1 : 0));
+      setIndex((prevIndex) => (prevIndex < slidesNumber - 1 ? prevIndex + 1 : 0));
     }, 8000);
   };
 
     // effect to trigger nextCard on mount and when index or slides change
   useEffect(() => {
     nextCard();
-  }, [index, slides]);
+  }, [index, slidesNumber]);
 
     // sort events by date in descending order
   const sortedEvents = data?.focus.sort((evtA, evtB) =>
