@@ -4,21 +4,27 @@ import Logo from "../../components/Logo";
 
 import "./style.scss";
 
+// defines a function to set the hash (ancre/ancrage) in the URL
+const setHash = (hash) => {
+  // modifies the hash in the URL of the page
+  window.document.location.hash = hash;
+};
+
 const Menu = () => (
   <nav>
     <Logo />
     <ul>
       <li>
-        <a href="#nos-services">Nos services</a>
+        <a href="#nos-services" onClick={() => setHash("#services")}>Nos services</a>
       </li>
       <li>
-        <a href="#nos-realisations">Nos réalisations</a>
+        <a href="#nos-realisations" onClick={() => setHash("#realisations")}>Nos réalisations</a>
       </li>
       <li>
-        <a href="#notre-equipe">Notre équipe</a>
+        <a href="#notre-equipe" onClick={() => setHash("#team")}>Notre équipe</a>
       </li>
     </ul>
-    <Button title="contact" onClick={() => (window.document.location.hash = "#contact")}>
+    <Button title="contact" onClick={() => setHash("#contact")}>
       Contact
     </Button>
   </nav>
