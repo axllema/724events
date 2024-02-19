@@ -15,8 +15,9 @@ const EventList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
     (!type
+      // if no type is selected, display all events
       ? data?.events
-      // CHANGE HERE
+      // CHANGEG HERE - filters events by selected type
       : data?.events.filter((event) => event.type === type)) || []
   ).filter((event, index) => {
     if (
