@@ -120,15 +120,18 @@ const Page = () => {
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         <EventCard
-          // imageSrc={last?.cover}
+          // avant : imageSrc={last?.cover}
           imageSrc={last ? last.cover : ""}
-          // title={last?.title}
+          // avant : title={last?.title}
           title={last ? last.title : ""}
-          // date={new Date(last?.date)}
+          // AJOUT DE CA - 23H18 20/02 - pour que le text alt existe et affiche le titre
+          imageAlt={last ? last.title : ""}
+          // avant : date={new Date(last?.date)}
           date={last ? new Date(last.date) : new Date()}
           small
-          // label="boom"
-          label={last ? last.category : ""}
+          // avant : label="boom"
+          // even if last.category is undefined, the label prop will have a default value of "Default Label", ensuring that it's never undefined
+          label={last && last.category ? last.category : "Non spécifié"}
         />
       </div>
       <div className="col contact">
