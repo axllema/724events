@@ -14,13 +14,19 @@ const Slider = () => {
   const nextCard = () => {
     setTimeout(() => {
       setIndex((prevIndex) => (prevIndex < slidesNumber - 1 ? prevIndex + 1 : 0));
-    }, 8000);
-  };
+    },9000);
+  };  
 
     // effect to trigger nextCard on mount and when index or slides change
   useEffect(() => {
     nextCard();
   }, [index, slidesNumber]);
+
+
+  // 23H08 20/02 - function to handle pagination change
+  const handlePaginationChange = (newIndex) => {
+    setIndex(newIndex);
+  };
 
     // sort events by date in descending order
   const sortedEvents = data?.focus.sort((evtA, evtB) =>
@@ -56,6 +62,8 @@ const Slider = () => {
               // checks if the event index matches the current index of the slide
               checked={index === radioIdx}
               readOnly
+              // 23H08 20/02 - handles pagination change
+              onChange={() => handlePaginationChange(radioIdx)} 
             />
           ))}
         </div>
