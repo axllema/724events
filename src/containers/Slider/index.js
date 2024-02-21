@@ -14,7 +14,7 @@ const Slider = () => {
   const nextCard = () => {
     setTimeout(() => {
       setIndex((prevIndex) => (prevIndex < slidesNumber - 1 ? prevIndex + 1 : 0));
-    },9000);
+    }, 9000);
   };  
 
     // effect to trigger nextCard on mount and when index or slides change
@@ -32,7 +32,6 @@ const Slider = () => {
   const sortedEvents = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? 1 : -1
   );
-
 
   return (
     <div className="SlideCardList">

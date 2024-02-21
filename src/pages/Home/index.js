@@ -16,8 +16,8 @@ const Page = () => {
   // avant : const {last} = useData()
   const {data} = useData();
   // extracts the last event from the data object
-  const last = data && data.events && data.events.length > 0 ? data.events[data.events.length - 1] : null;
-return <>
+  const last = data?.events?.length > 0 ? data.events[data.events.length - 1] : null;
+  return <>
     <header>
       <Menu />
     </header>
@@ -118,20 +118,20 @@ return <>
     </main>
     <footer className="row">
       <div className="col presta">
-        <h3>Notre derniére prestation</h3>
+        <h3>Notre dernière prestation</h3>
         <EventCard
           // avant : imageSrc={last?.cover}
-          imageSrc={last ? last.cover : ""}
+          imageSrc={last?.cover || ""}
           // avant : title={last?.title}
-          title={last ? last.title : ""}
-          // AJOUT DE CA - 23H18 20/02 - pour que le text alt existe et affiche le titre
-          imageAlt={last ? last.title : ""}
+          title={last?.title || ""}
+          // pour que le text alt existe et affiche le titre
+          imageAlt={last?.title || ""}
           // avant : date={new Date(last?.date)}
           date={last ? new Date(last.date) : new Date()}
           small
           // avant : label="boom"
           // even if last.category is undefined, the label prop will have a default value of "Default Label", ensuring that it's never undefined
-          label={last && last.type ? last.type : "Non spécifié"}
+          label={last?.type || "Non spécifié"}
         />
       </div>
       <div className="col contact">
