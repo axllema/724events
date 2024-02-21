@@ -17,7 +17,7 @@ const EventList = () => {
     (!type
       // if no type is selected, display all events
       ? data?.events
-      // CHANGEG HERE - filters events by selected type
+      // CHANGED HERE - filters events by selected type
       : data?.events.filter((event) => event.type === type)) || []
   ).filter((event, index) => {
     if (
@@ -28,6 +28,7 @@ const EventList = () => {
     }
     return false;
   });
+
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
