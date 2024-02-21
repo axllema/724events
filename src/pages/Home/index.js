@@ -17,7 +17,7 @@ const Page = () => {
   const {data} = useData();
   // extracts the last event from the data object
   const last = data && data.events && data.events.length > 0 ? data.events[data.events.length - 1] : null;
-  return <>
+return <>
     <header>
       <Menu />
     </header>
@@ -131,7 +131,7 @@ const Page = () => {
           small
           // avant : label="boom"
           // even if last.category is undefined, the label prop will have a default value of "Default Label", ensuring that it's never undefined
-          label={last && last.category ? last.category : "Non spécifié"}
+          label={last && last.type ? last.type : "Non spécifié"}
         />
       </div>
       <div className="col contact">
